@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:quiz_app/view_model/quiz_viewmodel.dart';
 
 class ResultsCard extends StatelessWidget {
   const ResultsCard({
@@ -12,6 +14,7 @@ class ResultsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var viewModel = context.watch<QuizViewModel>();
      //Color bgColor = ColorScheme.fromSeed(seedColor: Colors.green).primaryContainer;
      Color bgColor = ColorScheme.fromSeed(seedColor: Colors.green).primary;
 ;
@@ -48,8 +51,8 @@ class ResultsCard extends StatelessWidget {
                               ),
                          
                             TextSpan(
-                              text: "  m'adamfo\n You Scored  \n",
-                              style: Theme.of(context).textTheme.bodySmall,
+                              text: "  ${viewModel.userName}\n You Scored  \n",
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
                             TextSpan(
                               text: "$roundedPercentageScore%",
@@ -65,7 +68,7 @@ class ResultsCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                 Divider(),
+                const Divider(),
                   Expanded(
                     flex: 2,
                     child: Center(

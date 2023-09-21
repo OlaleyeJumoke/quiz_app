@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:provider/provider.dart';
 import 'package:quiz_app/model/questions_model.dart';
+import 'package:quiz_app/view_model/quiz_viewmodel.dart';
 import 'package:quiz_app/views/custom_widget/custom_text_field.dart';
 import 'package:quiz_app/views/quiz_page.dart';
 
@@ -17,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var name = useTextEditingController();
+    var viewModel = context.watch<QuizViewModel>();
     // Get a list of 4 randomly selected Questions objects
     Map<dynamic, dynamic> randomQuestionsMap =
         getRandomQuestionsAndOptions(stateQuestionsList, 4);
@@ -58,6 +61,7 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
                 onPressed: () {
+                  viewModel.userName = name.text;
                   Navigator.push(
                       context,
                       MaterialPageRoute(

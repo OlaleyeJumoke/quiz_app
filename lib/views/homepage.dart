@@ -46,9 +46,7 @@ class _HomePageState extends State<HomePage> {
               fieldName: "Username",
               maxLines: 1,
               inputType: TextInputType.number,
-              //isRequiredField: true,
               expenseField: true,
-              //onValidate: Validators.validateIsEmpty,
             ),
             MaterialButton(
                 color: ColorScheme.fromSwatch(primarySwatch: Colors.green)

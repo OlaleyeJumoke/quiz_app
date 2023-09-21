@@ -3,14 +3,14 @@ class Questions {
   final String text;
   final List<Option> options;
   bool isLocked;
-  Option? selectedWiidgetOption;
+  Option? selectedWidgetOption;
   Option? correctAnswer;
 
   Questions({
     required this.text,
     required this.options,
     this.isLocked = false,
-    this.selectedWiidgetOption,
+    this.selectedWidgetOption,
     required this.id,
     required this.correctAnswer,
   });
@@ -23,7 +23,7 @@ class Questions {
               Option(text: option.text, isCorrect: option.isCorrect))
           .toList(),
       isLocked: isLocked,
-      selectedWiidgetOption: selectedWiidgetOption,
+      selectedWidgetOption: selectedWidgetOption,
       correctAnswer: correctAnswer,
     );
   }

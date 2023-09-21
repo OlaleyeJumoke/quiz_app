@@ -108,9 +108,9 @@ class _QuizScreenState extends State<QuizScreen> {
                 Row(
                   children: [
                     Text(
-                      "${widget.topicType} Riddles",
+                      widget.topicType,
                       style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 20,
                           fontWeight: FontWeight.w400),
                       overflow: TextOverflow.ellipsis,
@@ -130,7 +130,7 @@ class _QuizScreenState extends State<QuizScreen> {
                         },
                         icon: const Icon(
                           CupertinoIcons.clear,
-                          color: Colors.white,
+                          color: Colors.black26,
                           weight: 10,
                         ),
                       ),
@@ -221,7 +221,7 @@ class _QuizScreenState extends State<QuizScreen> {
                                           if (myquestions.isLocked) {
                                             if (questionOption ==
                                                 myquestions
-                                                    .selectedWiidgetOption) {
+                                                    .selectedWidgetOption) {
                                               color = questionOption.isCorrect
                                                   ? Colors.green
                                                   : Colors.red;
@@ -232,19 +232,18 @@ class _QuizScreenState extends State<QuizScreen> {
                                           }
                                           return InkWell(
                                             onTap: () {
-                                              print(optionsIndex);
                                               stopTime();
                                               if (!myquestions.isLocked) {
                                                 setState(() {
                                                   myquestions.isLocked = true;
                                                   myquestions
-                                                          .selectedWiidgetOption =
+                                                          .selectedWidgetOption =
                                                       questionOption;
                                                 });
 
                                                 isLocked = myquestions.isLocked;
                                                 if (myquestions
-                                                    .selectedWiidgetOption
+                                                    .selectedWidgetOption
                                                     .isCorrect) {
                                                   score++;
                                                 }
